@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - Flag Force Plymouth</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #1e3a8a;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 50%, #fef2f2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(30, 64, 175, 0.2);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+
+        .logo:hover {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        nav a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.2s ease;
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+
+        nav a:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .error-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .error-content {
+            max-width: 600px;
+        }
+
+        .error-code {
+            font-size: 120px;
+            font-weight: 800;
+            color: #ef4444;
+            line-height: 1;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(239, 68, 68, 0.3);
+        }
+
+        .error-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .error-message {
+            font-size: 20px;
+            color: #475569;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .flag-display {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px 0;
+        }
+
+        .flag-container {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+            border: 2px solid #e2e8f0;
+        }
+
+        .flag {
+            width: 80px;
+            height: 53px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .st-george {
+            background: white;
+            position: relative;
+            border: 1px solid #e2e8f0;
+        }
+
+        .st-george::before {
+            content: '';
+            position: absolute;
+            top: 23px;
+            left: 0;
+            right: 0;
+            height: 7px;
+            background: #ef4444;
+        }
+
+        .st-george::after {
+            content: '';
+            position: absolute;
+            left: 36px;
+            top: 0;
+            bottom: 0;
+            width: 7px;
+            background: #ef4444;
+        }
+
+        .union-jack {
+            background: #012169;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .union-jack::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(26.57deg, transparent 46%, white 46%, white 54%, transparent 54%),
+                linear-gradient(-26.57deg, transparent 46%, white 46%, white 54%, transparent 54%),
+                linear-gradient(90deg, transparent 46%, white 46%, white 54%, transparent 54%),
+                linear-gradient(0deg, transparent 40%, white 40%, white 60%, transparent 60%);
+        }
+
+        .union-jack::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(26.57deg, transparent 48%, #ef4444 48%, #ef4444 52%, transparent 52%),
+                linear-gradient(-26.57deg, transparent 48%, #ef4444 48%, #ef4444 52%, transparent 52%),
+                linear-gradient(90deg, transparent 48%, #ef4444 48%, #ef4444 52%, transparent 52%),
+                linear-gradient(0deg, transparent 45%, #ef4444 45%, #ef4444 55%, transparent 55%);
+        }
+
+        .flag-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #1e40af;
+        }
+
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: white;
+            padding: 18px 36px;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(239, 68, 68, 0.4);
+        }
+
+        .secondary-button {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            box-shadow: 0 8px 25px rgba(30, 64, 175, 0.3);
+        }
+
+        .secondary-button:hover {
+            box-shadow: 0 12px 35px rgba(30, 64, 175, 0.4);
+        }
+
+        .helpful-links {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .helpful-links h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 16px;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .link-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
+        }
+
+        .link-item:hover {
+            border-color: #3b82f6;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.1);
+        }
+
+        .link-item a {
+            color: #1e40af;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .link-item a:hover {
+            color: #3b82f6;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 80px;
+            }
+
+            .error-title {
+                font-size: 32px;
+            }
+
+            .error-message {
+                font-size: 18px;
+            }
+
+            .flag-display {
+                gap: 20px;
+            }
+
+            .flag {
+                width: 60px;
+                height: 40px;
+            }
+
+            .st-george::before {
+                top: 17px;
+                height: 5px;
+            }
+
+            .st-george::after {
+                left: 27px;
+                width: 5px;
+            }
+
+            nav ul {
+                gap: 20px;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .action-buttons {
+                width: 100%;
+            }
+
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">Flag Force Plymouth</a>
+                <nav>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/#mission">Mission</a></li>
+                        <li><a href="/#about">About</a></li>
+                        <li><a href="/#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="error-section">
+        <div class="container">
+            <div class="error-content">
+                <div class="error-code">404</div>
+                <h1 class="error-title">Page Not Found</h1>
+                <p class="error-message">
+                    Sorry, but this page seems to have gone missing! Like a flag in a strong wind, 
+                    it may have been moved or removed. But don't worry - our patriotic spirit remains strong!
+                </p>
+
+                <div class="flag-display">
+                    <div class="flag-container">
+                        <div class="flag st-george"></div>
+                        <div class="flag-label">St George's Cross</div>
+                    </div>
+                    <div class="flag-container">
+                        <div class="flag union-jack"></div>
+                        <div class="flag-label">Union Flag</div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="/" class="cta-button">Return Home</a>
+                    <a href="javascript:history.back()" class="cta-button secondary-button">Go Back</a>
+                </div>
+
+                <div class="helpful-links">
+                    <h3>Try These Popular Pages:</h3>
+                    <div class="links-grid">
+                        <div class="link-item">
+                            <a href="/#mission">Our Mission</a>
+                        </div>
+                        <div class="link-item">
+                            <a href="/#about">About Our Movement</a>
+                        </div>
+                        <div class="link-item">
+                            <a href="https://www.gofundme.com/f/flags-for-the-community-of-plymouth" target="_blank">Support Us</a>
+                        </div>
+                        <div class="link-item">
+                            <a href="/#contact">Contact Information</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Flag Force Plymouth. Proudly British. Proudly Volunteer-Led.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
