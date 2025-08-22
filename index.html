@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flag Force Plymouth - British Patriots</title>
+    <title>Flag Force Plymouth</title>
     <style>
         * {
             margin: 0;
@@ -12,304 +12,82 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-            line-height: 1.6;
-            color: #1e3a8a;
-            background: #ffffff;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-            color: white;
-            padding: 15px 0;
-            box-shadow: 0 4px 20px rgba(30, 64, 175, 0.2);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header-content {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a365d 0%, #2d5a87 50%, #1a365d 100%);
+            height: 100vh;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .logo {
-            font-size: 22px;
-            font-weight: 800;
+            justify-content: center;
             color: white;
-            letter-spacing: -0.5px;
-            flex-shrink: 0;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 14px;
-            transition: all 0.2s ease;
-            padding: 8px 12px;
-            border-radius: 6px;
-            white-space: nowrap;
-        }
-
-        nav a:hover {
-            color: white;
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .hero {
-            padding: 80px 0;
-            text-align: center;
-            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 50%, #fef2f2 100%);
-            border-bottom: 3px solid #3b82f6;
-        }
-
-        .hero h1 {
-            font-size: clamp(32px, 8vw, 64px);
-            font-weight: 800;
-            color: #1e40af;
-            margin-bottom: 20px;
-            letter-spacing: -2px;
-            line-height: 1.1;
-        }
-
-        .hero p {
-            font-size: clamp(16px, 4vw, 20px);
-            color: #475569;
-            max-width: 650px;
-            margin: 0 auto 30px;
-            line-height: 1.6;
-            padding: 0 10px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-            color: white;
-            padding: 16px 30px;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.3);
-            margin: 10px;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(239, 68, 68, 0.4);
-        }
-
-        .section {
-            padding: 60px 0;
-        }
-
-        .section:nth-child(even):not(.stats-section) {
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-        }
-
-        .section h2 {
-            font-size: clamp(28px, 6vw, 48px);
-            font-weight: 700;
-            color: #1e40af;
-            text-align: center;
-            margin-bottom: 16px;
-            letter-spacing: -1px;
-        }
-
-        .section-subtitle {
-            font-size: clamp(16px, 4vw, 20px);
-            color: #64748b;
-            text-align: center;
-            max-width: 650px;
-            margin: 0 auto 50px;
-            padding: 0 15px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            padding: 30px 25px;
-            background: white;
-            border-radius: 16px;
-            border: 2px solid #e2e8f0;
-            transition: all 0.3s ease;
-            position: relative;
             overflow: hidden;
         }
 
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #3b82f6 0%, #ef4444 100%);
-        }
-
-        .card:hover {
-            border-color: #3b82f6;
-            transform: translateY(-4px);
-            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.15);
-        }
-
-        .card h3 {
-            font-size: clamp(20px, 5vw, 24px);
-            font-weight: 600;
-            color: #1e40af;
-            margin-bottom: 16px;
-        }
-
-        .card p {
-            color: #64748b;
-            font-size: clamp(14px, 3.5vw, 16px);
-            line-height: 1.7;
-        }
-
-        .stats-section {
-            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #ef4444 100%) !important;
-            color: white;
-        }
-
-        .stats-section h2 {
-            color: white !important;
-        }
-
-        .stats-section .section-subtitle {
-            color: rgba(255, 255, 255, 0.8) !important;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
-            gap: 30px;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .stats-disclaimer {
+        .container {
             text-align: center;
             max-width: 800px;
-            margin: 0 auto;
-            font-size: clamp(12px, 3vw, 14px);
-            color: rgba(255, 255, 255, 0.8);
-            font-style: italic;
-            line-height: 1.5;
-            padding: 0 15px;
+            padding: 2rem;
         }
 
-        .stat-item {
-            padding: 25px 15px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .stat-item h3 {
-            font-size: clamp(32px, 8vw, 48px);
-            font-weight: 800;
+        .logo {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
             color: white;
-            margin-bottom: 8px;
         }
 
-        .stat-item p {
-            font-size: clamp(14px, 3.5vw, 18px);
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 50px;
-            align-items: center;
-            justify-items: center;
-        }
-
-        .about-text {
-            font-size: clamp(16px, 4vw, 18px);
-            line-height: 1.7;
-            color: #475569;
-        }
-
-        .about-text p {
-            margin-bottom: 24px;
+        .tagline {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-weight: 300;
         }
 
         .flag-display {
             display: flex;
-            flex-direction: row;
-            gap: 25px;
-            align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .flag-container {
-            text-align: center;
-            padding: 20px;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1);
-            border: 2px solid #e2e8f0;
-            flex: 0 0 auto;
+            gap: 3rem;
+            margin: 2rem 0;
         }
 
         .flag {
-            width: 100px;
-            height: 67px;
-            border-radius: 6px;
-            margin-bottom: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            width: 120px;
+            height: 80px;
+            border: 3px solid white;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .flag:hover {
+            transform: scale(1.1) rotateY(15deg);
         }
 
         .st-george {
             background: white;
             position: relative;
-            border: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+
+        .st-george::before,
+        .st-george::after {
+            content: '';
+            position: absolute;
+            background: #c41e3a;
         }
 
         .st-george::before {
-            content: '';
-            position: absolute;
             top: 50%;
             left: 0;
-            right: 0;
-            height: 8px;
-            background: #ef4444;
+            width: 100%;
+            height: 16px;
             transform: translateY(-50%);
         }
 
         .st-george::after {
-            content: '';
-            position: absolute;
-            left: 50%;
             top: 0;
-            bottom: 0;
-            width: 8px;
-            background: #ef4444;
+            left: 50%;
+            width: 16px;
+            height: 100%;
             transform: translateX(-50%);
         }
 
@@ -319,512 +97,177 @@
             overflow: hidden;
         }
 
+        /* White diagonal stripes */
         .union-jack::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
+            width: 100%;
+            height: 100%;
             background: 
-                linear-gradient(26.57deg, transparent 46%, white 46%, white 54%, transparent 54%),
-                linear-gradient(-26.57deg, transparent 46%, white 46%, white 54%, transparent 54%),
-                linear-gradient(90deg, transparent 46%, white 46%, white 54%, transparent 54%),
-                linear-gradient(0deg, transparent 40%, white 40%, white 60%, transparent 60%);
+                linear-gradient(45deg, transparent 42%, white 42%, white 58%, transparent 58%),
+                linear-gradient(-45deg, transparent 42%, white 42%, white 58%, transparent 58%);
         }
 
+        /* White cross */
         .union-jack::after {
             content: '';
             position: absolute;
-            top: 0;
+            top: 50%;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                linear-gradient(26.57deg, transparent 48%, #ef4444 48%, #ef4444 52%, transparent 52%),
-                linear-gradient(-26.57deg, transparent 48%, #ef4444 48%, #ef4444 52%, transparent 52%),
-                linear-gradient(90deg, transparent 48%, #ef4444 48%, #ef4444 52%, transparent 52%),
-                linear-gradient(0deg, transparent 45%, #ef4444 45%, #ef4444 55%, transparent 55%);
+            width: 100%;
+            height: 20%;
+            background: white;
+            transform: translateY(-50%);
         }
 
-        .flag-label {
-            font-size: clamp(12px, 3vw, 14px);
-            font-weight: 600;
-            color: #1e40af;
-        }
-
-        .volunteer-section {
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .volunteer-section::before {
-            content: '';
+        .union-jack .vertical {
             position: absolute;
             top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.1);
-        }
-
-        .volunteer-section h2 {
-            color: white;
-            position: relative;
-            z-index: 2;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .volunteer-section p {
-            font-size: clamp(16px, 4vw, 20px);
-            color: white;
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-            padding: 0 15px;
-        }
-
-        .gofundme-section {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            color: white;
-            text-align: center;
-            padding: 60px 0;
-        }
-
-        .gofundme-section h2 {
-            color: white;
-            margin-bottom: 20px;
-        }
-
-        .gofundme-section p {
-            font-size: clamp(16px, 4vw, 20px);
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 700px;
-            margin: 0 auto 30px;
-            line-height: 1.6;
-            padding: 0 15px;
-        }
-
-        .gofundme-button {
-            display: inline-block;
+            left: 50%;
+            width: 20%;
+            height: 100%;
             background: white;
-            color: #059669;
-            padding: 18px 35px;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: clamp(16px, 4vw, 18px);
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin: 10px;
+            transform: translateX(-50%);
         }
 
-        .gofundme-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
-            background: #f0fdf4;
+        .union-jack .red-cross-h {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 10%;
+            background: #c41e3a;
+            transform: translateY(-50%);
+            z-index: 3;
         }
 
-        .funding-guide {
-            font-size: clamp(14px, 3.5vw, 16px);
-            color: rgba(255, 255, 255, 0.8);
-            margin-top: 20px;
-            font-style: italic;
-            padding: 0 15px;
+        .union-jack .red-cross-v {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 10%;
+            height: 100%;
+            background: #c41e3a;
+            transform: translateX(-50%);
+            z-index: 3;
         }
 
-        footer {
-            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
-            color: white;
-            padding: 50px 0 30px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
-            gap: 40px;
-            margin-bottom: 30px;
-        }
-
-        .footer-section h4 {
-            font-size: clamp(16px, 4vw, 18px);
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: white;
-        }
-
-        .footer-section p {
-            color: rgba(255, 255, 255, 0.8);
+        .mission {
+            font-size: 1.2rem;
+            margin: 2rem 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
             line-height: 1.6;
-            font-size: clamp(14px, 3.5vw, 16px);
+            opacity: 0.95;
         }
 
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            color: rgba(255, 255, 255, 0.7);
-            font-size: clamp(12px, 3vw, 14px);
+        .contact {
+            margin-top: 2rem;
         }
 
-        /* Mobile-specific optimizations */
+        .btn {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid white;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn:hover {
+            background: white;
+            color: #1a365d;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
         @media (max-width: 768px) {
-            .container {
-                padding: 0 15px;
-            }
-
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 10px;
-            }
-
             .logo {
-                font-size: 20px;
+                font-size: 2.5rem;
             }
-
-            nav ul {
-                gap: 15px;
-                justify-content: center;
-            }
-
-            nav a {
-                font-size: 13px;
-                padding: 6px 10px;
-            }
-
-            .hero {
-                padding: 60px 0;
-            }
-
-            .section {
-                padding: 40px 0;
-            }
-
-            .grid {
-                gap: 20px;
-            }
-
-            .card {
-                padding: 25px 20px;
-            }
-
-            .stats-grid {
-                gap: 20px;
-            }
-
-            .stat-item {
-                padding: 20px 10px;
-            }
-
-            .flag-display {
-                gap: 20px;
-            }
-
-            .flag-container {
-                padding: 15px;
-            }
-
-            .flag {
-                width: 80px;
-                height: 53px;
-            }
-
-            .st-george::before {
-                top: 50%;
-                height: 7px;
-                transform: translateY(-50%);
-            }
-
-            .st-george::after {
-                left: 50%;
-                width: 7px;
-                transform: translateX(-50%);
-            }
-
-            .about-content {
-                gap: 30px;
-            }
-
-            .footer-grid {
-                gap: 30px;
-            }
-
-            footer {
-                padding: 40px 0 25px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 12px;
-            }
-
-            .hero {
-                padding: 50px 0;
-            }
-
-            .section {
-                padding: 35px 0;
-            }
-
-            .card {
-                padding: 20px 15px;
-            }
-
-            .flag {
-                width: 70px;
-                height: 47px;
-            }
-
-            .st-george::before {
-                top: 50%;
-                height: 6px;
-                transform: translateY(-50%);
-            }
-
-            .st-george::after {
-                left: 50%;
-                width: 6px;
-                transform: translateX(-50%);
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-            }
-
-            .stat-item {
-                padding: 15px 8px;
-            }
-
-            nav ul {
-                gap: 10px;
-            }
-
-            nav a {
-                font-size: 12px;
-                padding: 5px 8px;
-            }
-        }
-
-        /* Very small screens */
-        @media (max-width: 320px) {
-            .container {
-                padding: 0 10px;
-            }
-
-            .logo {
-                font-size: 18px;
-            }
-
+            
             .flag-display {
                 flex-direction: column;
-                gap: 15px;
-            }
-
-            .flag {
-                width: 60px;
-                height: 40px;
-            }
-
-            .st-george::before {
-                top: 50%;
-                height: 5px;
-                transform: translateY(-50%);
-            }
-
-            .st-george::after {
-                left: 50%;
-                width: 5px;
-                transform: translateX(-50%);
-            }
-        }
-
-        /* Improve touch targets */
-        @media (hover: none) and (pointer: coarse) {
-            .cta-button,
-            .gofundme-button,
-            nav a {
-                min-height: 44px;
-                display: flex;
                 align-items: center;
-                justify-content: center;
+                gap: 1.5rem;
+            }
+            
+            .mission {
+                font-size: 1.1rem;
+            }
+
+            .container {
+                padding: 1rem;
             }
         }
 
-        /* Ensure text remains readable on all screen sizes */
-        @media (max-width: 768px) {
-            .hero p,
-            .section-subtitle,
-            .about-text,
-            .volunteer-section p,
-            .gofundme-section p {
-                line-height: 1.7;
+        @media (max-height: 600px) {
+            .logo {
+                font-size: 2.5rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+            }
+            
+            .flag {
+                width: 100px;
+                height: 65px;
+            }
+            
+            .mission {
+                font-size: 1rem;
+                margin: 1rem 0;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">Flag Force Plymouth</div>
-                <nav>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#mission">Mission</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
+    <div class="container">
+        <h1 class="logo">Flag Force Plymouth</h1>
+        <p class="tagline">Raising the colours across our great city</p>
+        
+        <div class="flag-display">
+            <div class="flag st-george"></div>
         </div>
-    </header>
-
-    <section class="hero" id="home">
-        <div class="container">
-            <h1>Flag Force Plymouth</h1>
-            <p>A volunteer-led movement of British patriots covering Plymouth with the St George's Cross and Union Flag. We love our country and will not be afraid or ashamed to raise our colours.</p>
-            <a href="#about" class="cta-button">Learn More</a>
+        
+        <p class="mission">
+            Celebrating England's heritage and bringing our community together through the proud display of our national flags.
+        </p>
+        
+        <div class="contact">
+            <a href="https://gofund.me/aa002a01" class="btn">Support Us</a>
         </div>
-    </section>
-
-    <section class="section" id="mission">
-        <div class="container">
-            <h2>Our Mission</h2>
-            <p class="section-subtitle">Starting in Plymouth with plans to expand across Devon & Cornwall, we're building a visible movement of British patriotism through community action.</p>
-            <div class="grid">
-                <div class="card">
-                    <h3>St George's Cross</h3>
-                    <p>Proudly displaying the flag of England across Plymouth, celebrating our English heritage and identity with dignity and pride in our communities.</p>
-                </div>
-                <div class="card">
-                    <h3>Union Flag</h3>
-                    <p>Flying the Union Jack to demonstrate our unity as Britons, representing the enduring strength and shared values of our United Kingdom.</p>
-                </div>
-                <div class="card">
-                    <h3>Volunteer-Led</h3>
-                    <p>Built entirely by ordinary British people who love their country, working together as volunteers to make patriotism visible and celebrated.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="gofundme-section">
-        <div class="container">
-            <h2>Support Our Mission</h2>
-            <p>Help Flag Force Plymouth cover more of our city with British flags. Your donations go directly towards purchasing flags to display in communities across Plymouth and beyond.</p>
-            <a href="https://www.gofundme.com/f/flags-for-the-community-of-plymouth" target="_blank" class="gofundme-button">Donate on GoFundMe</a>
-            <div class="funding-guide">
-                <p>Rough guide: £3 = 1 flag • Every donation helps expand our patriotic presence</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section volunteer-section">
-        <div class="container">
-            <h2>Proudly Volunteer-Led</h2>
-            <p>Flag Force Plymouth is powered entirely by volunteers - ordinary British people who believe in our country and want to see our flags flying with pride. Every member contributes their time because they love Britain and believe in making patriotism visible.</p>
-        </div>
-    </section>
-
-    <section class="section stats-section">
-        <div class="container">
-            <h2>Growing Movement</h2>
-            <p class="section-subtitle">Our impact across Plymouth continues to expand as more patriots join our cause. We update these figures every Monday.</p>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>30</h3>
-                    <p>Flags Purchased</p>
-                </div>
-                <div class="stat-item">
-                    <h3>2</h3>
-                    <p>Flags Flying</p>
-                </div>
-                <div class="stat-item">
-                    <h3>0</h3>
-                    <p>Donations</p>
-                </div>
-                <div class="stat-item">
-                    <h3>3</h3>
-                    <p>Volunteers</p>
-                </div>
-            </div>
-            <div class="stats-disclaimer">
-                <p>We count how many flags we have installed, but cannot guarantee they haven't been removed by vandals or authorities. We endeavour to check on and maintain all flags and will replace whenever necessary.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="about">
-        <div class="container">
-            <h2>About Our Movement</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Flag Force Plymouth is a grassroots movement of British patriots who believe in celebrating our national identity through the proud display of our flags. We are ordinary people from across Plymouth who refuse to be ashamed of our British heritage.</p>
-                    
-                    <p>Starting in Plymouth and expanding across Devon and Cornwall, our volunteer-led organization coordinates flag displays and works to ensure that British patriotism remains visible and celebrated in our communities.</p>
-                    
-                    <p>Our movement represents unity, pride, and the fundamental belief that flying the St George's Cross and Union Flag is something to be celebrated, not hidden. We welcome all patriots who share our love of Britain.</p>
-                </div>
-                <div class="flag-display">
-                    <div class="flag-container">
-                        <div class="flag st-george"></div>
-                        <div class="flag-label">St George's Cross</div>
-                    </div>
-                    <div class="flag-container">
-                        <div class="flag union-jack"></div>
-                        <div class="flag-label">Union Flag</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h4>Flag Force Plymouth</h4>
-                    <p>A volunteer-led movement of British patriots covering Plymouth with the colours of England and Britain. Starting local, expanding outward across the region.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Our Values</h4>
-                    <p>British Pride • Volunteer Spirit • Community Unity • Patriotic Display • Local Action • National Heritage</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Expansion Plans</h4>
-                    <p>Beginning in Plymouth, expanding to surrounding areas throughout 2025. Help us grow the movement across the South West.</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Flag Force Plymouth. Proudly British. Proudly Volunteer-Led.</p>
-            </div>
-        </div>
-    </footer>
+    </div>
 
     <script>
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+        // Add subtle animation to flags
+        document.querySelectorAll('.flag').forEach((flag, index) => {
+            setTimeout(() => {
+                flag.style.animation = 'float 3s ease-in-out infinite';
+                flag.style.animationDelay = `${index * 0.5}s`;
+            }, 500);
         });
+
+        // Add floating animation keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-10px); }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
