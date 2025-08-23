@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Not Found - Flag Force Plymouth</title>
+    <title>Flag Force Plymouth</title>
     <style>
         * {
             margin: 0;
@@ -12,152 +12,83 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-            line-height: 1.6;
-            color: #1e3a8a;
-            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 50%, #fef2f2 100%);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        header {
-            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-            color: white;
-            padding: 20px 0;
-            box-shadow: 0 4px 20px rgba(30, 64, 175, 0.2);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 26px;
-            font-weight: 800;
-            color: white;
-            letter-spacing: -0.5px;
-            text-decoration: none;
-        }
-
-        .logo:hover {
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 40px;
-        }
-
-        nav a {
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 16px;
-            transition: all 0.2s ease;
-            padding: 8px 16px;
-            border-radius: 6px;
-        }
-
-        nav a:hover {
-            color: white;
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .error-section {
-            flex: 1;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a365d 0%, #2d5a87 50%, #1a365d 100%);
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 80px 0;
+            color: white;
+            overflow: hidden;
+        }
+
+        .container {
             text-align: center;
+            max-width: 800px;
+            padding: 2rem;
         }
 
-        .error-content {
-            max-width: 600px;
+        .logo {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            color: white;
         }
 
-        .error-code {
-            font-size: 120px;
-            font-weight: 800;
-            color: #ef4444;
-            line-height: 1;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(239, 68, 68, 0.3);
-        }
-
-        .error-title {
-            font-size: 48px;
-            font-weight: 700;
-            color: #1e40af;
-            margin-bottom: 24px;
-            letter-spacing: -1px;
-        }
-
-        .error-message {
-            font-size: 20px;
-            color: #475569;
-            margin-bottom: 40px;
-            line-height: 1.6;
+        .tagline {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-weight: 300;
         }
 
         .flag-display {
             display: flex;
             justify-content: center;
-            gap: 40px;
-            margin: 40px 0;
-        }
-
-        .flag-container {
-            text-align: center;
-            padding: 20px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
-            border: 2px solid #e2e8f0;
+            gap: 3rem;
+            margin: 2rem 0;
         }
 
         .flag {
-            width: 80px;
-            height: 53px;
-            border-radius: 4px;
-            margin-bottom: 8px;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+            width: 120px;
+            height: 80px;
+            border: 3px solid white;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .flag:hover {
+            transform: scale(1.1) rotateY(15deg);
         }
 
         .st-george {
             background: white;
             position: relative;
-            border: 1px solid #e2e8f0;
+            overflow: hidden;
         }
 
-        .st-george::before {
-            content: '';
-            position: absolute;
-            top: 23px;
-            left: 0;
-            right: 0;
-            height: 7px;
-            background: #ef4444;
-        }
-
+        .st-george::before,
         .st-george::after {
             content: '';
             position: absolute;
-            left: 36px;
+            background: #c41e3a;
+        }
+
+        .st-george::before {
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 16px;
+            transform: translateY(-50%);
+        }
+
+        .st-george::after {
             top: 0;
-            bottom: 0;
-            width: 7px;
-            background: #ef4444;
+            left: 50%;
+            width: 16px;
+            height: 100%;
+            transform: translateX(-50%);
         }
 
         .union-jack {
@@ -166,255 +97,200 @@
             overflow: hidden;
         }
 
+        /* White diagonal stripes */
         .union-jack::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
+            width: 100%;
+            height: 100%;
             background: 
-                linear-gradient(26.57deg, transparent 46%, white 46%, white 54%, transparent 54%),
-                linear-gradient(-26.57deg, transparent 46%, white 46%, white 54%, transparent 54%),
-                linear-gradient(90deg, transparent 46%, white 46%, white 54%, transparent 54%),
-                linear-gradient(0deg, transparent 40%, white 40%, white 60%, transparent 60%);
+                linear-gradient(45deg, transparent 42%, white 42%, white 58%, transparent 58%),
+                linear-gradient(-45deg, transparent 42%, white 42%, white 58%, transparent 58%);
         }
 
+        /* White cross */
         .union-jack::after {
             content: '';
             position: absolute;
-            top: 0;
+            top: 50%;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                linear-gradient(26.57deg, transparent 48%, #ef4444 48%, #ef4444 52%, transparent 52%),
-                linear-gradient(-26.57deg, transparent 48%, #ef4444 48%, #ef4444 52%, transparent 52%),
-                linear-gradient(90deg, transparent 48%, #ef4444 48%, #ef4444 52%, transparent 52%),
-                linear-gradient(0deg, transparent 45%, #ef4444 45%, #ef4444 55%, transparent 55%);
+            width: 100%;
+            height: 20%;
+            background: white;
+            transform: translateY(-50%);
         }
 
-        .flag-label {
-            font-size: 12px;
-            font-weight: 600;
-            color: #1e40af;
+        .union-jack .vertical {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 20%;
+            height: 100%;
+            background: white;
+            transform: translateX(-50%);
         }
 
-        .action-buttons {
+        .union-jack .red-cross-h {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 10%;
+            background: #c41e3a;
+            transform: translateY(-50%);
+            z-index: 3;
+        }
+
+        .union-jack .red-cross-v {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 10%;
+            height: 100%;
+            background: #c41e3a;
+            transform: translateX(-50%);
+            z-index: 3;
+        }
+
+        .mission {
+            font-size: 1.2rem;
+            margin: 2rem 0 1.5rem 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        .links {
+            margin-top: 1.5rem;
             display: flex;
             flex-direction: column;
-            gap: 16px;
-            align-items: center;
+            gap: 1rem;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        .btn {
+            display: block;
+            background: rgba(255, 255, 255, 0.1);
             color: white;
-            padding: 18px 36px;
+            padding: 1rem 2rem;
             text-decoration: none;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 16px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(239, 68, 68, 0.4);
-        }
-
-        .secondary-button {
-            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-            box-shadow: 0 8px 25px rgba(30, 64, 175, 0.3);
-        }
-
-        .secondary-button:hover {
-            box-shadow: 0 12px 35px rgba(30, 64, 175, 0.4);
-        }
-
-        .helpful-links {
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 2px solid rgba(59, 130, 246, 0.2);
-        }
-
-        .helpful-links h3 {
-            font-size: 20px;
-            font-weight: 600;
-            color: #1e40af;
-            margin-bottom: 16px;
-        }
-
-        .links-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .link-item {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #e2e8f0;
-            transition: all 0.2s ease;
-        }
-
-        .link-item:hover {
-            border-color: #3b82f6;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.1);
-        }
-
-        .link-item a {
-            color: #1e40af;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .link-item a:hover {
-            color: #3b82f6;
-        }
-
-        footer {
-            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
-            color: white;
-            padding: 40px 0 20px;
-            margin-top: auto;
-        }
-
-        .footer-content {
+            border: 2px solid white;
+            backdrop-filter: blur(10px);
             text-align: center;
-            color: rgba(255, 255, 255, 0.8);
         }
 
-        /* Mobile Responsive */
+        .btn:hover {
+            background: white;
+            color: #1a365d;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn.primary {
+            background: rgba(196, 30, 58, 0.2);
+            border-color: #c41e3a;
+            color: #c41e3a;
+            font-weight: bold;
+        }
+
+        .btn.primary:hover {
+            background: #c41e3a;
+            color: white;
+        }
+
         @media (max-width: 768px) {
-            .error-code {
-                font-size: 80px;
+            .logo {
+                font-size: 2.5rem;
             }
-
-            .error-title {
-                font-size: 32px;
-            }
-
-            .error-message {
-                font-size: 18px;
-            }
-
+            
             .flag-display {
-                gap: 20px;
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
             }
-
-            .flag {
-                width: 60px;
-                height: 40px;
-            }
-
-            .st-george::before {
-                top: 17px;
-                height: 5px;
-            }
-
-            .st-george::after {
-                left: 27px;
-                width: 5px;
-            }
-
-            nav ul {
-                gap: 20px;
+            
+            .mission {
+                font-size: 1.1rem;
             }
 
             .container {
-                padding: 0 20px;
+                padding: 1rem;
             }
+        }
 
-            .action-buttons {
-                width: 100%;
+        @media (max-height: 600px) {
+            .logo {
+                font-size: 2.5rem;
+                margin-bottom: 0.5rem;
             }
-
-            .cta-button {
-                width: 100%;
-                max-width: 300px;
+            
+            .tagline {
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
             }
-
-            .links-grid {
-                grid-template-columns: 1fr;
+            
+            .flag {
+                width: 100px;
+                height: 65px;
+            }
+            
+            .mission {
+                font-size: 1rem;
+                margin: 1rem 0;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <a href="/" class="logo">Flag Force Plymouth</a>
-                <nav>
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/#mission">Mission</a></li>
-                        <li><a href="/#about">About</a></li>
-                        <li><a href="/#contact">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
+    <div class="container">
+        <h1 class="logo">Flag Force Plymouth</h1>
+        <p class="tagline">Raising the colours across our great city</p>
+        
+        <div class="flag-display">
+            <div class="flag st-george"></div>
         </div>
-    </header>
-
-    <section class="error-section">
-        <div class="container">
-            <div class="error-content">
-                <div class="error-code">404</div>
-                <h1 class="error-title">Page Not Found</h1>
-                <p class="error-message">
-                    Sorry, but this page seems to have gone missing! Like a flag in a strong wind, 
-                    it may have been moved or removed. But don't worry - our patriotic spirit remains strong!
-                </p>
-
-                <div class="flag-display">
-                    <div class="flag-container">
-                        <div class="flag st-george"></div>
-                        <div class="flag-label">St George's Cross</div>
-                    </div>
-                    <div class="flag-container">
-                        <div class="flag union-jack"></div>
-                        <div class="flag-label">Union Flag</div>
-                    </div>
-                </div>
-
-                <div class="action-buttons">
-                    <a href="/" class="cta-button">Return Home</a>
-                    <a href="javascript:history.back()" class="cta-button secondary-button">Go Back</a>
-                </div>
-
-                <div class="helpful-links">
-                    <h3>Try These Popular Pages:</h3>
-                    <div class="links-grid">
-                        <div class="link-item">
-                            <a href="/#mission">Our Mission</a>
-                        </div>
-                        <div class="link-item">
-                            <a href="/#about">About Our Movement</a>
-                        </div>
-                        <div class="link-item">
-                            <a href="https://www.gofundme.com/f/flags-for-the-community-of-plymouth" target="_blank">Support Us</a>
-                        </div>
-                        <div class="link-item">
-                            <a href="/#contact">Contact Information</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        
+        <p class="mission">
+            Celebrating Plymouth's heritage and bringing our community together through the proud display of our national flags.
+        </p>
+        
+        <div class="links">
+            <a href="https://gofund.me/f9a9cfc0" class="btn primary">Help to Buy More Flags</a>
+            <a href="https://x.com/FlagForcePlym" class="btn">Twitter / X</a>
+            <a href="https://facebook.com/flagforceplym" class="btn">Facebook</a>
+            <a href="https://www.tiktok.com/@flagforceplym" class="btn">TikTok</a>
+            <a href="https://www.instagram.com/flagforceplym/" class="btn">Instagram</a>
         </div>
-    </section>
+    </div>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 Flag Force Plymouth. Proudly British. Proudly Volunteer-Led.</p>
-            </div>
-        </div>
-    </footer>
+    <script>
+        // Add subtle animation to flags
+        document.querySelectorAll('.flag').forEach((flag, index) => {
+            setTimeout(() => {
+                flag.style.animation = 'float 3s ease-in-out infinite';
+                flag.style.animationDelay = `${index * 0.5}s`;
+            }, 500);
+        });
+
+        // Add floating animation keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-10px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
